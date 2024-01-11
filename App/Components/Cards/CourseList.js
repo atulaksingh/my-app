@@ -24,8 +24,15 @@ const CourseData = [
 export default function CourseList({ type }) {
   return (
     <View style={{ marginTop: 10 }}>
-      <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 3 ,textTransform:"capitalize"}}>
-        {type} Course
+      <Text
+        style={{
+          fontSize: 20,
+          fontWeight: "bold",
+          marginBottom: 3,
+          textTransform: "capitalize",
+        }}
+      >
+        {type} Courseee
       </Text>
       <FlatList
         data={CourseData}
@@ -44,8 +51,12 @@ export default function CourseList({ type }) {
               style={{ width: 210, height: 120, borderRadius: 10 }}
             />
             <View style={{ padding: 9 }}>
-              <Text style={{fontSize:15,fontWeight:"bold"}}>{item.title}</Text>
-              <Text style={{color:Color.gray, fontWeight:"300"}}>{item.topic} Lessons</Text>
+              <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+                {item.title}
+              </Text>
+              <Text style={{ color: Color.gray, fontWeight: "300" }}>
+                {item.topic} Lessons
+              </Text>
             </View>
           </View>
         )}
