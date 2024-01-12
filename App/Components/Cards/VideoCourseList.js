@@ -1,5 +1,6 @@
-import { View, Text, FlatList, Image, TurboModuleRegistry } from "react-native";
+import { View, Text, FlatList, Image,  TouchableOpacity } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const VideoData = [
   {
@@ -17,6 +18,10 @@ const VideoData = [
 ];
 
 export default function VideoCourseList() {
+  const navigation = useNavigation();
+  const onPressCourse = (course) => {
+    navigation.navigate("course-details");
+  };
   return (
     <View style={{marginTop:20}}>
     <Text style={{fontSize:20,fontWeight:"bold" ,marginBottom:3}}>Video Course</Text>
@@ -25,11 +30,11 @@ export default function VideoCourseList() {
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         renderItem={({ item }) => (
-          <View>
+          <TouchableOpacity  onPress={() => onPressCourse()}>
            <Image source={{uri: item.url}}
            style={{width:190,height:105,borderRadius:7,marginRight:10}}
            />
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>

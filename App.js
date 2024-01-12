@@ -8,18 +8,22 @@ import HomeNavigation from "./App/Navigation/HomeNavigation";
 const Stack = createStackNavigator();
 export default function App() {
   return (
+    <View style={styles.container}>
+  
     <NavigationContainer>
-      <HomeNavigation />
+        <HomeNavigation/>
     </NavigationContainer>
+    
+    
+  </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 120,
+    flex:1,
+    backgroundColor: '#F6F8FC',
+
   },
 });
