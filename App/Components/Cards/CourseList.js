@@ -1,6 +1,7 @@
-import { View, Text, FlatList, Image } from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Color from "../../Shared/Color";
+import { useNavigation } from "@react-navigation/native";
 const CourseData = [
   {
     id: "1",
@@ -22,6 +23,10 @@ const CourseData = [
   },
 ];
 export default function CourseList({ type }) {
+  const navigation = useNavigation();
+  const onPressCourse = (course) => {
+    navigation.navigate("course-details");
+  };
   return (
     <View style={{ marginTop: 10 }}>
       <Text
@@ -32,19 +37,20 @@ export default function CourseList({ type }) {
           textTransform: "capitalize",
         }}
       >
-        {type} Courseee
+        {type} Course
       </Text>
       <FlatList
         data={CourseData}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-          <View
+          <TouchableOpacity
             style={{
               backgroundColor: Color.white,
               marginRight: 10,
               borderRadius: 10,
             }}
+            onPress={() => onPressCourse()}
           >
             <Image
               source={{ uri: item.url }}
@@ -58,7 +64,7 @@ export default function CourseList({ type }) {
                 {item.topic} Lessons
               </Text>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>

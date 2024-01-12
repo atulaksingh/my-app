@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import Color from "../Shared/Color";
 import { AntDesign } from "@expo/vector-icons";
@@ -8,7 +8,7 @@ export default function Login() {
 
   const goToNextScreen = () => {
     // Navigate to the 'Next' screen
-    navigation.navigate("Home");
+    navigation.navigate("home");
   };
   return (
     <View>
@@ -18,25 +18,16 @@ export default function Login() {
         <Text style={{ textAlign: "center", fontSize: 20, marginTop: 80 }}>
           Login/Signup
         </Text>
-        {/* <View style={styles.button}>
+     
+        <TouchableOpacity style={styles.button} onPress={goToNextScreen}>
           <AntDesign
             name="google"
             size={24}
             color="white"
             style={{ marginRight: 10 }}
           />
-          <Text style={{ color: "#fff" }} >Sign With Google</Text>
-          <Text style={{ color: "#fff" }} onPress={goToNextScreen}>Go to Home Page</Text>
-        </View> */}
-        <View style={styles.button}>
-          <AntDesign
-            name="google"
-            size={24}
-            color="white"
-            style={{ marginRight: 10 }}
-          />
-          <Text style={{ color: "#fff" }} onPress={goToNextScreen}>Go to Home Page</Text>
-        </View>
+          <Text style={{ color: "#fff" }} >Go to Home Page</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
